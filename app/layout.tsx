@@ -20,14 +20,6 @@ export const metadata: Metadata = {
     description: "Plug-and-play AI prompt packs for marketers, founders, real estate agents, and sales professionals. Stop wasting time on bad prompts.",
     url: "https://prompts.3vo.ai",
     siteName: "AI Prompt Packs",
-    images: [
-      {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "AI Prompt Packs — Expert Prompts for Business Professionals",
-      },
-    ],
     type: "website",
   },
 };
