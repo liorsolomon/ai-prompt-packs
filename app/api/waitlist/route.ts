@@ -59,21 +59,26 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           from: 'AI Prompt Packs <noreply@3vo.ai>',
           to: [email],
-          subject: "You're on the waitlist — AI Prompt Packs launching soon",
-          html: `
-            <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto; padding: 32px; color: #111;">
-              <h1 style="font-size: 24px; font-weight: 700; margin-bottom: 16px;">You're in! 🎉</h1>
-              <p style="color: #555; line-height: 1.6;">
-                Thanks for joining the AI Prompt Packs waitlist. You'll be among the first to know when we launch — and you'll get early-bird pricing.
-              </p>
-              <p style="color: #555; line-height: 1.6;">
-                We're packaging expert-crafted prompts for marketers, founders, and business professionals — tested with ChatGPT and Claude, ready to paste.
-              </p>
-              <p style="color: #555; line-height: 1.6; margin-top: 24px;">
-                — The AI Prompt Packs team
-              </p>
-            </div>
-          `,
+          subject: "You got early access — here's what's coming 🎯",
+          html: `<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>You're in early</title></head>
+<body style="margin:0;padding:0;background:#f9f9f9;font-family:system-ui,-apple-system,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9f9f9;">
+    <tr><td align="center" style="padding:40px 16px;">
+      <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:12px;padding:40px;max-width:560px;">
+        <tr><td>
+          <h1 style="margin:0 0 24px;font-size:28px;font-weight:700;color:#111;">You got early access. 🎯</h1>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">Welcome to AI Prompt Packs. You're ahead of the curve — most people are still guessing their way through AI tools. You're not.</p>
+          <p style="margin:0 0 16px;font-size:16px;line-height:1.6;color:#444;">When we launch, you'll be among the first to access a curated library of high-performance prompts for ChatGPT, Claude, Gemini, and more — organised by use case, tested for real output quality, and ready to copy-paste into your workflow.</p>
+          <p style="margin:0 0 32px;font-size:16px;line-height:1.6;color:#444;">We'll email you the moment the doors open. No fluff — just the link.</p>
+          <p style="margin:0;font-size:15px;color:#666;">— The AI Prompt Packs team</p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`,
         }),
       });
     } catch (err) {
