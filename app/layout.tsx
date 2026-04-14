@@ -6,6 +6,7 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -21,6 +22,11 @@ export const metadata: Metadata = {
     url: "https://prompts.3vo.ai",
     siteName: "AI Prompt Packs",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Prompt Packs — Expert Prompts for Business Professionals",
+    description: "Plug-and-play AI prompt packs for marketers, founders, real estate agents, and sales professionals. Stop wasting time on bad prompts.",
   },
 };
 

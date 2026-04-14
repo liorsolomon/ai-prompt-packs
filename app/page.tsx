@@ -1,42 +1,6 @@
-'use client';
-
-import { useState } from 'react';
+import WaitlistForm from "./WaitlistForm";
 
 export default function Home() {
-  const [email, setEmail] = useState('');
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setLoading(true);
-    try {
-      const res = await fetch('/api/waitlist', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email }),
-      });
-      if (res.ok) {
-        setSubmitted(true);
-        if (typeof window !== 'undefined' && (window as any).posthog) {
-          (window as any).posthog.capture('waitlist_submitted', { email });
-        }
-        // Meta Pixel Lead conversion
-        if (typeof window !== 'undefined' && (window as any).fbq) {
-          (window as any).fbq('track', 'Lead');
-        }
-        // GA4 sign_up conversion
-        if (typeof window !== 'undefined' && (window as any).gtag) {
-          (window as any).gtag('event', 'sign_up', { method: 'waitlist' });
-        }
-      }
-    } catch {
-      // fail silently
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
     <main className="min-h-screen bg-gray-950 text-white">
       {/* Hero */}
@@ -56,30 +20,7 @@ export default function Home() {
             Get expert-crafted prompts that actually work — tested, refined, and ready to paste.
           </p>
           <div className="mt-10">
-            {submitted ? (
-              <div className="rounded-xl border border-violet-500/30 bg-violet-500/10 p-6 text-violet-300">
-                <p className="text-lg font-semibold">You&apos;re on the list! 🎉</p>
-                <p className="mt-1 text-sm">We&apos;ll notify you at launch with early-bird pricing.</p>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white placeholder-gray-400 focus:border-violet-500 focus:outline-none sm:w-80"
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
-                >
-                  {loading ? 'Joining...' : 'Get Early Access'}
-                </button>
-              </form>
-            )}
+            <WaitlistForm buttonText="Get Early Access" variant="hero" />
             <p className="mt-3 text-sm text-gray-500">$19–$39 one-time · No subscription · Instant download</p>
           </div>
         </div>
@@ -108,9 +49,9 @@ export default function Home() {
           </p>
           <div className="mt-10 grid gap-4 text-left sm:grid-cols-3">
             {[
-              { icon: '⏱', title: 'Time wasted', desc: 'Crafting prompts from scratch every single day' },
-              { icon: '😤', title: 'Mediocre output', desc: 'Generic responses that still need heavy editing' },
-              { icon: '💸', title: 'Missed ROI', desc: 'Paying for AI tools but not extracting their value' },
+              { icon: "⏱", title: "Time wasted", desc: "Crafting prompts from scratch every single day" },
+              { icon: "😤", title: "Mediocre output", desc: "Generic responses that still need heavy editing" },
+              { icon: "💸", title: "Missed ROI", desc: "Paying for AI tools but not extracting their value" },
             ].map((item) => (
               <div key={item.title} className="rounded-xl border border-gray-800 bg-gray-900 p-5">
                 <div className="text-2xl">{item.icon}</div>
@@ -134,81 +75,81 @@ export default function Home() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {[
               {
-                icon: '📣',
-                title: 'Marketing Campaigns',
-                price: '$19',
+                icon: "📣",
+                title: "Marketing Campaigns",
+                price: "$19",
                 popular: false,
                 bullets: [
-                  'Ad copy for 5 channels',
-                  'Email sequences (7-part)',
-                  'Social content calendar',
-                  'Campaign brief generator',
-                  '25 prompts total',
+                  "Ad copy for 5 channels",
+                  "Email sequences (7-part)",
+                  "Social content calendar",
+                  "Campaign brief generator",
+                  "25 prompts total",
                 ],
               },
               {
-                icon: '🏡',
-                title: 'Real Estate Agents',
-                price: '$19',
+                icon: "🏡",
+                title: "Real Estate Agents",
+                price: "$19",
                 popular: false,
                 bullets: [
-                  'Listing descriptions',
-                  'Buyer/seller scripts',
-                  'Follow-up email sequences',
-                  'Market report summaries',
-                  '30 prompts total',
+                  "Listing descriptions",
+                  "Buyer/seller scripts",
+                  "Follow-up email sequences",
+                  "Market report summaries",
+                  "30 prompts total",
                 ],
               },
               {
-                icon: '🚀',
-                title: 'Founders & Solopreneurs',
-                price: '$29',
+                icon: "🚀",
+                title: "Founders & Solopreneurs",
+                price: "$29",
                 popular: false,
                 bullets: [
-                  'Pitch deck narrative',
-                  'Cold outreach sequences',
-                  'Product positioning',
-                  'Investor update templates',
-                  '40 prompts total',
+                  "Pitch deck narrative",
+                  "Cold outreach sequences",
+                  "Product positioning",
+                  "Investor update templates",
+                  "40 prompts total",
                 ],
               },
               {
-                icon: '✍️',
-                title: 'Content Creators',
-                price: '$19',
+                icon: "✍️",
+                title: "Content Creators",
+                price: "$19",
                 popular: false,
                 bullets: [
-                  'YouTube script outlines',
-                  'Newsletter frameworks',
-                  'Thread / carousel hooks',
-                  'Repurposing workflows',
-                  '30 prompts total',
+                  "YouTube script outlines",
+                  "Newsletter frameworks",
+                  "Thread / carousel hooks",
+                  "Repurposing workflows",
+                  "30 prompts total",
                 ],
               },
               {
-                icon: '🎯',
-                title: 'Sales Professionals',
-                price: '$29',
+                icon: "🎯",
+                title: "Sales Professionals",
+                price: "$29",
                 popular: false,
                 bullets: [
-                  'Discovery call prep',
-                  'Objection handling scripts',
-                  'Proposal generators',
-                  'Pipeline cadence emails',
-                  '35 prompts total',
+                  "Discovery call prep",
+                  "Objection handling scripts",
+                  "Proposal generators",
+                  "Pipeline cadence emails",
+                  "35 prompts total",
                 ],
               },
               {
-                icon: '📦',
-                title: 'The Full Bundle',
-                price: '$79',
+                icon: "📦",
+                title: "The Full Bundle",
+                price: "$79",
                 popular: true,
                 bullets: [
-                  'All 5 packs included',
-                  'Lifetime updates',
-                  'New packs as released',
-                  'Priority email support',
-                  '160+ prompts total',
+                  "All 5 packs included",
+                  "Lifetime updates",
+                  "New packs as released",
+                  "Priority email support",
+                  "160+ prompts total",
                 ],
               },
             ].map((pack) => (
@@ -216,8 +157,8 @@ export default function Home() {
                 key={pack.title}
                 className={`relative rounded-xl border p-6 ${
                   pack.popular
-                    ? 'border-violet-500 bg-violet-500/10'
-                    : 'border-gray-700 bg-gray-800'
+                    ? "border-violet-500 bg-violet-500/10"
+                    : "border-gray-700 bg-gray-800"
                 }`}
               >
                 {pack.popular && (
@@ -249,19 +190,22 @@ export default function Home() {
           <div className="mt-10 grid gap-6 sm:grid-cols-3">
             {[
               {
-                quote: "I was spending 45 minutes a day fighting ChatGPT for decent ad copy. Now I paste a prompt and get something I can actually use in under 3 minutes.",
-                name: 'Sarah K.',
-                role: 'Marketing Director',
+                quote:
+                  "I was spending 45 minutes a day fighting ChatGPT for decent ad copy. Now I paste a prompt and get something I can actually use in under 3 minutes.",
+                name: "Sarah K.",
+                role: "Marketing Director",
               },
               {
-                quote: "The real estate pack alone paid for itself on the first listing description I ran through it. My seller was blown away.",
-                name: 'Marcus T.',
-                role: 'Realtor, 12 years exp.',
+                quote:
+                  "The real estate pack alone paid for itself on the first listing description I ran through it. My seller was blown away.",
+                name: "Marcus T.",
+                role: "Realtor, 12 years exp.",
               },
               {
-                quote: "I bought the bundle thinking it was overpriced. I was wrong. These prompts have replaced two hours of daily writing work.",
-                name: 'Priya M.',
-                role: 'Founder, B2B SaaS',
+                quote:
+                  "I bought the bundle thinking it was overpriced. I was wrong. These prompts have replaced two hours of daily writing work.",
+                name: "Priya M.",
+                role: "Founder, B2B SaaS",
               },
             ].map((t) => (
               <div key={t.name} className="rounded-xl border border-gray-700 bg-gray-900 p-6">
@@ -287,27 +231,7 @@ export default function Home() {
             Join the waitlist now and lock in launch-day pricing — up to 40% off before we go public.
           </p>
           <div className="mt-8">
-            {submitted ? (
-              <p className="text-violet-300 text-lg font-semibold">You&apos;re already on the list! ✅</p>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white placeholder-gray-400 focus:border-violet-500 focus:outline-none sm:w-80"
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
-                >
-                  {loading ? 'Joining...' : 'Lock In Early Pricing'}
-                </button>
-              </form>
-            )}
+            <WaitlistForm buttonText="Lock In Early Pricing" variant="cta" />
             <p className="mt-3 text-sm text-gray-500">Individual packs $19–$39 · Full bundle $79 · One-time payment</p>
           </div>
         </div>
