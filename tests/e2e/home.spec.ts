@@ -9,26 +9,33 @@ test.describe('AI Prompt Packs homepage', () => {
 
   test('email form is present', async ({ page }) => {
     await page.goto('/');
-    const emailInput = page.locator('input[type="email"], input[placeholder*="email" i]').first();
+    const emailInput = page.locator('input[type="email"]').first();
     await expect(emailInput).toBeVisible();
   });
 
-  test('email form submits successfully', async ({ page }) => {
+  test('email form submits and shows success', async ({ page }) => {
+    // Mock the waitlist API — no real Supabase/Resend calls in CI
     await page.route('**/api/waitlist', (route) =>
-      route.fulfill({ status: 200, body: JSON.stringify({ ok: true }) })
+      route.fulfill({ status: 200, body: JSON.stringify({ ok: true }), contentType: 'application/json' })
     );
 
     await page.goto('/');
-    const emailInput = page.locator('input[type="email"], input[placeholder*="email" i]').first();
+    const emailInput = page.locator('input[type="email"]').first();
     await emailInput.fill('test@example.com');
-    await page.click('button[type="submit"], input[type="submit"]');
 
-    await expect(page.locator('text=/thank|confirmed|you\'re in|early access|check your/i')).toBeVisible({ timeout: 8_000 });
+    // Submit by pressing Enter or clicking the submit button
+    await Promise.any([
+      page.click('input[type="submit"]').catch(() => {}),
+      page.click('button[type="submit"]').catch(() => {}),
+    ]);
+
+    // Success: "You're on the list! 🎉"
+    await expect(page.locator('text=/on the list/i')).toBeVisible({ timeout: 8_000 });
   });
 
   test('pricing section is visible', async ({ page }) => {
     await page.goto('/');
-    await expect(page.locator('text=/pricing|\$/i').first()).toBeVisible();
+    await expect(page.locator('text=/\\$\\d+/').first()).toBeVisible();
   });
 
   test('page has no 4xx internal links', async ({ page }) => {
