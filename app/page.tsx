@@ -420,18 +420,15 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-800 px-6 py-8 text-center text-sm text-gray-500">
+      <footer className="border-t border-gray-800 px-6 py-10 text-center text-sm text-gray-500">
+        <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-4">
+          <a href="/about" className="hover:text-gray-300 transition-colors">About</a>
+          <a href="/contact" className="hover:text-gray-300 transition-colors">Contact</a>
+          <a href="/privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
+          <a href="/terms" className="hover:text-gray-300 transition-colors">Terms of Use</a>
+          <a href="https://x.com/3voai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">X @3voai</a>
+        </div>
         <p>© 2026 AI Prompt Packs — The 3vo.ai team</p>
-        <p className="mt-2">
-          <a
-            href="https://x.com/3voai"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hover:text-gray-300 transition-colors"
-          >
-            Follow us on X @3voai
-          </a>
-        </p>
       </footer>
     </main>
   );
