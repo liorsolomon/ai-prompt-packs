@@ -11,13 +11,13 @@ const geistSans = Geist({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://prompts.3vo.ai"),
-  title: "AI Prompt Packs — Expert Prompts for Business Professionals",
+  title: "AI Prompt Packs — Role-Specific Prompt Packs That Actually Work",
   description: "Plug-and-play AI prompt packs for marketers, founders, real estate agents, and sales professionals. Stop wasting time on bad prompts.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "AI Prompt Packs — Expert Prompts for Business Professionals",
+    title: "AI Prompt Packs — Role-Specific Prompt Packs That Actually Work",
     description: "Plug-and-play AI prompt packs for marketers, founders, real estate agents, and sales professionals. Stop wasting time on bad prompts.",
     url: "https://prompts.3vo.ai",
     siteName: "AI Prompt Packs",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI Prompt Packs — Expert Prompts for Business Professionals",
+    title: "AI Prompt Packs — Role-Specific Prompt Packs That Actually Work",
     description: "Plug-and-play AI prompt packs for marketers, founders, real estate agents, and sales professionals. Stop wasting time on bad prompts.",
   },
 };

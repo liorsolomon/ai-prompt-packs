@@ -20,7 +20,7 @@ export default function Home() {
             Get expert-crafted prompts that actually work — tested, refined, and ready to paste.
           </p>
           <div className="mt-10">
-            <WaitlistForm buttonText="Get Early Access" variant="hero" />
+            <WaitlistForm buttonText="Get Instant Access" variant="hero" />
             <p className="mt-3 text-sm text-gray-500">$19–$39 one-time · No subscription · Instant download</p>
           </div>
         </div>
@@ -228,10 +228,10 @@ export default function Home() {
             <span className="text-violet-400">Start winning the prompts arms race.</span>
           </h2>
           <p className="mt-4 text-gray-300">
-            Join the waitlist now and lock in launch-day pricing — up to 40% off before we go public.
+            Individual packs from $19. Full bundle $79. Instant download — yours forever.
           </p>
           <div className="mt-8">
-            <WaitlistForm buttonText="Lock In Early Pricing" variant="cta" />
+            <WaitlistForm buttonText="Buy Now" variant="cta" />
             <p className="mt-3 text-sm text-gray-500">Individual packs $19–$39 · Full bundle $79 · One-time payment</p>
           </div>
         </div>
