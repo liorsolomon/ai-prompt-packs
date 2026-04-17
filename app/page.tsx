@@ -237,9 +237,67 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ */}
+      <section className="px-6 py-20">
+        <div className="mx-auto max-w-3xl">
+          <h2 className="text-center text-3xl font-bold sm:text-4xl">Frequently asked questions</h2>
+          <div className="mt-10 space-y-4">
+            {[
+              {
+                q: "What exactly do I get?",
+                a: "A downloadable PDF and plain-text file containing 25–50 professionally engineered prompts specific to your chosen role. Each prompt includes fill-in-the-blank variables so you can use it immediately without editing.",
+              },
+              {
+                q: "Do these work with ChatGPT and Claude?",
+                a: "Yes. Every prompt is tested on both ChatGPT (GPT-4o) and Claude 3.5/3.7. They're written in plain language — no jailbreaks, no tricks — so they work reliably on any major AI model.",
+              },
+              {
+                q: "I'm not technical. Will I be able to use these?",
+                a: "That's exactly who these are made for. Copy the prompt, paste it into your AI tool, fill in the [brackets], hit send. No setup, no coding, no learning curve.",
+              },
+              {
+                q: "What if I'm not satisfied?",
+                a: "We offer a 30-day no-questions-asked refund. If you don't get value from the prompts, email us and we'll refund you in full.",
+              },
+              {
+                q: "Are updates included?",
+                a: "Yes. Individual packs include 12 months of free updates. The bundle includes lifetime updates — including any new packs released.",
+              },
+              {
+                q: "How do I get the files after purchase?",
+                a: "Instant digital download. You'll receive a download link immediately after payment — no waiting, no shipping.",
+              },
+              {
+                q: "Can I buy just one pack, or do I need the bundle?",
+                a: "You can buy any individual pack for $19–$39 or grab the bundle for $79 and get everything. Start with one if you want to try before you commit.",
+              },
+            ].map((item) => (
+              <details
+                key={item.q}
+                className="group rounded-xl border border-gray-800 bg-gray-900 px-6 py-4 open:border-violet-500/50"
+              >
+                <summary className="flex cursor-pointer items-center justify-between font-semibold text-white list-none">
+                  {item.q}
+                  <span className="ml-4 shrink-0 text-gray-400 transition group-open:rotate-45">+</span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-gray-400">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer className="border-t border-gray-800 px-6 py-8 text-center text-sm text-gray-500">
-        <p>© 2026 AI Prompt Packs. All rights reserved.</p>
+      <footer className="border-t border-gray-800 px-6 py-10 text-center text-sm text-gray-500">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-6 flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
+            <a href="/about" className="hover:text-gray-300 transition">About</a>
+            <a href="/contact" className="hover:text-gray-300 transition">Contact</a>
+            <a href="/privacy" className="hover:text-gray-300 transition">Privacy Policy</a>
+            <a href="/terms" className="hover:text-gray-300 transition">Terms of Use</a>
+          </div>
+          <p>© 2026 AI Prompt Packs. All rights reserved.</p>
+        </div>
       </footer>
     </main>
   );
