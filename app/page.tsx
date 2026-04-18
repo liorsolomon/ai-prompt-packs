@@ -48,8 +48,8 @@ export default function Home() {
             Join 2,400+ professionals already using AI smarter
           </div>
           <h1 className="mt-6 text-4xl font-extrabold tracking-tight sm:text-6xl">
-            Role-Specific Prompt Packs<br />
-            <span className="text-violet-400">That Actually Work</span>
+            Prompt packs that actually work —<br />
+            <span className="text-violet-400">built for your role, not a demo.</span>
           </h1>
           <p className="mt-6 text-lg text-gray-300 sm:text-xl">
             Role-specific AI prompt packs for marketers, founders, and operators.
