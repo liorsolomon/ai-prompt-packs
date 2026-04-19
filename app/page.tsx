@@ -132,6 +132,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Product preview */}
+      <section className="px-6 py-16 bg-gray-900/60 border-y border-gray-800">
+        <div className="mx-auto max-w-4xl">
+          <p className="text-center text-xs text-gray-500 mb-6 uppercase tracking-wider font-semibold">Sample prompts from the pack</p>
+          <div className="grid gap-4 sm:grid-cols-3">
+            {[
+              {
+                label: "Client Outreach",
+                prompt: "Write a cold pitch to [target client type] for [your service]. Lead with their pain point, not your credentials. Keep it under 100 words.",
+              },
+              {
+                label: "Content — LinkedIn",
+                prompt: "Write a LinkedIn post about [topic or lesson learned]. Format: 1-line hook, 3–5 short paragraphs, CTA. Tone: direct, no buzzwords.",
+              },
+              {
+                label: "Pricing & Positioning",
+                prompt: "I charge [current rate] for [service]. Help me reframe my pricing conversation so clients focus on ROI, not cost.",
+              },
+            ].map((card) => (
+              <div key={card.label} className="rounded-xl border border-gray-700 bg-gray-900 p-5">
+                <div className="text-xs font-semibold text-violet-400 uppercase tracking-wider mb-3">{card.label}</div>
+                <p className="text-sm text-gray-300 leading-relaxed font-mono">{card.prompt}</p>
+              </div>
+            ))}
+          </div>
+          <p className="text-center text-xs text-gray-600 mt-5">80+ prompts like these · 7 categories · Tested on ChatGPT &amp; Claude · Ready to paste</p>
+        </div>
+      </section>
+
       {/* Why prompts.3vo.ai */}
       <section className="px-6 py-20">
         <div className="mx-auto max-w-3xl">
