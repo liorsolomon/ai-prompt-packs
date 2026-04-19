@@ -6,27 +6,21 @@ import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
-  display: "swap",
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://prompts.3vo.ai"),
-  title: "AI Prompt Packs — Role-Specific Prompt Packs That Actually Work",
-  description: "Plug-and-play AI prompt packs for marketers, founders, real estate agents, and sales professionals. Stop wasting time on bad prompts.",
+  title: "AI Prompt Packs — Prompt packs that actually work, built for your role",
+  description: "Role-specific AI prompt packs for marketers, founders, and operators. Tested on real workflows. Ready to paste. No trial and error.",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "AI Prompt Packs — Role-Specific Prompt Packs That Actually Work",
-    description: "Plug-and-play AI prompt packs for marketers, founders, real estate agents, and sales professionals. Stop wasting time on bad prompts.",
+    title: "AI Prompt Packs — Prompt packs that actually work, built for your role",
+    description: "Role-specific AI prompt packs for marketers, founders, and operators. Tested on real workflows. Ready to paste. No trial and error.",
     url: "https://prompts.3vo.ai",
     siteName: "AI Prompt Packs",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "AI Prompt Packs — Role-Specific Prompt Packs That Actually Work",
-    description: "Plug-and-play AI prompt packs for marketers, founders, real estate agents, and sales professionals. Stop wasting time on bad prompts.",
   },
 };
 
