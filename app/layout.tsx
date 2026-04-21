@@ -8,6 +8,8 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
+const googleVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION;
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://prompts.3vo.ai"),
   title: "AI Prompt Packs — Prompt packs that actually work, built for your role",
@@ -22,6 +24,7 @@ export const metadata: Metadata = {
     siteName: "AI Prompt Packs",
     type: "website",
   },
+  ...(googleVerification ? { verification: { google: googleVerification } } : {}),
 };
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
