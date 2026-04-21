@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import PromptPersonalizer from './PromptPersonalizer';
 
 const WHY = [
   {
@@ -223,6 +224,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Prompt Personalizer */}
+      <PromptPersonalizer />
 
       {/* CTA */}
       <section className="bg-gradient-to-br from-violet-900 to-gray-950 px-6 py-24 text-center">
