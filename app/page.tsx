@@ -124,7 +124,7 @@ export default function Home() {
                   disabled={loading}
                   className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
                 >
-                  {loading ? 'Processing...' : 'Get it — $49'}
+                  {loading ? 'Joining...' : 'Get Early Access — Free'}
                 </button>
               </form>
             )}
@@ -257,7 +257,7 @@ export default function Home() {
                   disabled={loading}
                   className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
                 >
-                  {loading ? 'Processing...' : 'Get it — $49'}
+                  {loading ? 'Joining...' : 'Get Early Access — Free'}
                 </button>
               </form>
             )}
