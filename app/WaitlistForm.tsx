@@ -35,6 +35,9 @@ export default function WaitlistForm({
         if (typeof window !== "undefined" && (window as any).gtag) {
           (window as any).gtag("event", "sign_up", { method: "waitlist" });
         }
+        if (typeof window !== "undefined" && (window as any).rdt) {
+          (window as any).rdt("track", "Lead", { currency: "USD", value: 5.00 });
+        }
       }
     } catch {
       // fail silently

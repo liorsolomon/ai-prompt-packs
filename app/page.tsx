@@ -76,6 +76,9 @@ export default function Home() {
         if (typeof window !== 'undefined' && (window as any).gtag) {
           (window as any).gtag('event', 'sign_up', { method: 'waitlist' });
         }
+        if (typeof window !== 'undefined' && (window as any).rdt) {
+          (window as any).rdt('track', 'Lead', { currency: 'USD', value: 5.00 });
+        }
       }
     } catch {
       // fail silently
@@ -128,7 +131,7 @@ export default function Home() {
                 </button>
               </form>
             )}
-            <p className="mt-3 text-sm text-gray-500">$49 one-time · No subscription · Instant access</p>
+            <p className="mt-3 text-sm text-gray-500">Early access is free · $49 at launch · No subscription</p>
           </div>
         </div>
       </section>
@@ -261,7 +264,7 @@ export default function Home() {
                 </button>
               </form>
             )}
-            <p className="mt-3 text-sm text-gray-500">$49 one-time · No subscription · Instant access</p>
+            <p className="mt-3 text-sm text-gray-500">Early access is free · $49 at launch · No subscription</p>
           </div>
         </div>
       </section>
