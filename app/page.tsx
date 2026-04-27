@@ -5,7 +5,7 @@ import { useState } from 'react';
 const WHY = [
   {
     title: "Curated, not crowdsourced.",
-    description: "PromptBase sells individual bundles at $19–$49 each. You get a solopreneur-specific, organized pack for the same price.",
+    description: "PromptBase sells individual bundles at $19-$49 each. You get a solopreneur-specific, organized pack for the same price.",
   },
   {
     title: "Built for output, not experimentation.",
@@ -144,7 +144,7 @@ export default function Home() {
               },
               {
                 label: "Content — LinkedIn",
-                prompt: "Write a LinkedIn post about [topic or lesson learned]. Format: 1-line hook, 3–5 short paragraphs, CTA. Tone: direct, no buzzwords.",
+                prompt: "Write a LinkedIn post about [topic or lesson learned]. Format: 1-line hook, 3-5 short paragraphs, CTA. Tone: direct, no buzzwords.",
               },
               {
                 label: "Pricing & Positioning",
@@ -196,7 +196,7 @@ export default function Home() {
       <section className="px-6 py-16">
         <div className="mx-auto max-w-3xl grid gap-6 sm:grid-cols-2 text-center">
           <div className="rounded-xl border border-gray-800 bg-gray-900 p-8">
-            <div className="text-4xl font-extrabold text-violet-400 mb-2">5–10 hrs</div>
+            <div className="text-4xl font-extrabold text-violet-400 mb-2">5-10 hrs</div>
             <p className="text-sm text-gray-400">saved per week by solopreneurs using AI for content and outreach</p>
           </div>
           <div className="rounded-xl border border-gray-800 bg-gray-900 p-8">
