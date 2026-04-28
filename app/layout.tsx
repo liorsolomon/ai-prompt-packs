@@ -29,6 +29,7 @@ export const metadata: Metadata = {
 
 const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID;
 const META_PIXEL_ID = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+const REDDIT_PIXEL_ID = process.env.NEXT_PUBLIC_REDDIT_PIXEL_ID;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -94,6 +95,17 @@ export default function RootLayout({
               'https://connect.facebook.net/en_US/fbevents.js');
               fbq('init', '${META_PIXEL_ID}');
               fbq('track', 'PageView');
+            `}
+          </Script>
+        )}
+
+        {/* Reddit Pixel */}
+        {REDDIT_PIXEL_ID && (
+          <Script id="reddit-pixel-init" strategy="afterInteractive">
+            {`
+              !function(w,d){if(!w.rdt){var p=w.rdt=function(){p.sendEvent?p.sendEvent.apply(p,arguments):p.callQueue.push(arguments)};p.callQueue=[];var t=d.createElement("script");t.src="https://www.redditstatic.com/ads/v2.js",t.async=!0;var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(t,s)}}(window,document);
+              rdt('init','${REDDIT_PIXEL_ID}');
+              rdt('track','PageVisit');
             `}
           </Script>
         )}
