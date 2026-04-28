@@ -55,6 +55,7 @@ export default function Home() {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [tosAgreed, setTosAgreed] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -113,22 +114,39 @@ export default function Home() {
                 <p className="mt-1 text-sm">We&apos;ll send your access link shortly.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white placeholder-gray-400 focus:border-violet-500 focus:outline-none sm:w-80"
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
-                >
-                  {loading ? 'Joining...' : 'Get Early Access — Free'}
-                </button>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+                  <input
+                    type="email"
+                    required
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white placeholder-gray-400 focus:border-violet-500 focus:outline-none sm:w-80"
+                  />
+                  <button
+                    type="submit"
+                    disabled={loading || !tosAgreed}
+                    className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
+                  >
+                    {loading ? 'Joining...' : 'Get Early Access — Free'}
+                  </button>
+                </div>
+                <label className="flex items-center justify-center gap-2 text-xs text-gray-400 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    required
+                    checked={tosAgreed}
+                    onChange={(e) => setTosAgreed(e.target.checked)}
+                    className="accent-violet-500"
+                  />
+                  <span>
+                    I agree to the{' '}
+                    <a href="/terms" className="text-violet-400 hover:text-violet-300 underline">
+                      Terms of Service
+                    </a>
+                  </span>
+                </label>
               </form>
             )}
             <p className="mt-3 text-sm text-gray-500">Early access is free · $49 at launch · No subscription</p>
@@ -246,22 +264,39 @@ export default function Home() {
             {submitted ? (
               <p className="text-violet-300 text-lg font-semibold">You&apos;re in! Check your inbox. ✅</p>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-3 sm:flex-row sm:justify-center">
-                <input
-                  type="email"
-                  required
-                  placeholder="Enter your email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white placeholder-gray-400 focus:border-violet-500 focus:outline-none sm:w-80"
-                />
-                <button
-                  type="submit"
-                  disabled={loading}
-                  className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
-                >
-                  {loading ? 'Joining...' : 'Get Early Access — Free'}
-                </button>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+                <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+                  <input
+                    type="email"
+                    required
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white placeholder-gray-400 focus:border-violet-500 focus:outline-none sm:w-80"
+                  />
+                  <button
+                    type="submit"
+                    disabled={loading || !tosAgreed}
+                    className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
+                  >
+                    {loading ? 'Joining...' : 'Get Early Access — Free'}
+                  </button>
+                </div>
+                <label className="flex items-center justify-center gap-2 text-xs text-gray-400 cursor-pointer">
+                  <input
+                    type="checkbox"
+                    required
+                    checked={tosAgreed}
+                    onChange={(e) => setTosAgreed(e.target.checked)}
+                    className="accent-violet-500"
+                  />
+                  <span>
+                    I agree to the{' '}
+                    <a href="/terms" className="text-violet-400 hover:text-violet-300 underline">
+                      Terms of Service
+                    </a>
+                  </span>
+                </label>
               </form>
             )}
             <p className="mt-3 text-sm text-gray-500">Early access is free · $49 at launch · No subscription</p>
@@ -275,10 +310,10 @@ export default function Home() {
           <a href="/about" className="hover:text-gray-300 transition-colors">About</a>
           <a href="/contact" className="hover:text-gray-300 transition-colors">Contact</a>
           <a href="/privacy" className="hover:text-gray-300 transition-colors">Privacy Policy</a>
-          <a href="/terms" className="hover:text-gray-300 transition-colors">Terms of Use</a>
+          <a href="/terms" className="hover:text-gray-300 transition-colors">Terms of Service</a>
           <a href="https://x.com/3voai" target="_blank" rel="noopener noreferrer" className="hover:text-gray-300 transition-colors">X @3voai</a>
         </div>
-        <p>© 2026 prompts.3vo.ai — The 3vo.ai team</p>
+        <p>© 2026 3vo Prompt Marketplace™ — The 3vo Prompt Marketplace team</p>
       </footer>
     </main>
   );

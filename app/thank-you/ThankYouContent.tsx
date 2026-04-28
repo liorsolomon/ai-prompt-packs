@@ -82,8 +82,11 @@ export default function ThankYouContent() {
               </div>
             </>
           )}
-          <div className="mt-16 pt-8 border-t border-gray-800 text-sm text-gray-600">
-            — The Prompts team
+          <div className="mt-16 pt-8 border-t border-gray-800 text-sm text-gray-600 flex justify-center gap-6">
+            <a href="/" className="hover:text-gray-400 transition">Home</a>
+            <a href="/contact" className="hover:text-gray-400 transition">Contact</a>
+            <a href="/privacy" className="hover:text-gray-400 transition">Privacy Policy</a>
+            <a href="/terms" className="hover:text-gray-400 transition">Terms of Service</a>
           </div>
         </div>
       </section>

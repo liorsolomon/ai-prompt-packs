@@ -14,6 +14,7 @@ export default function WaitlistForm({
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [tosAgreed, setTosAgreed] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,25 +64,39 @@ export default function WaitlistForm({
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex flex-col gap-3 sm:flex-row sm:justify-center"
-    >
-      <input
-        type="email"
-        required
-        placeholder="Enter your email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white placeholder-gray-400 focus:border-violet-500 focus:outline-none sm:w-80"
-      />
-      <button
-        type="submit"
-        disabled={loading}
-        className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
-      >
-        {loading ? "Joining..." : buttonText}
-      </button>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row sm:justify-center">
+        <input
+          type="email"
+          required
+          placeholder="Enter your email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full rounded-lg border border-gray-700 bg-gray-800 px-4 py-3 text-white placeholder-gray-400 focus:border-violet-500 focus:outline-none sm:w-80"
+        />
+        <button
+          type="submit"
+          disabled={loading || !tosAgreed}
+          className="rounded-lg bg-violet-600 px-6 py-3 font-semibold text-white transition hover:bg-violet-500 disabled:opacity-50"
+        >
+          {loading ? "Joining..." : buttonText}
+        </button>
+      </div>
+      <label className="flex items-start gap-2 text-xs text-gray-400 cursor-pointer sm:justify-center">
+        <input
+          type="checkbox"
+          required
+          checked={tosAgreed}
+          onChange={(e) => setTosAgreed(e.target.checked)}
+          className="mt-0.5 accent-violet-500 flex-shrink-0"
+        />
+        <span>
+          I agree to the{" "}
+          <a href="/terms" className="text-violet-400 hover:text-violet-300 underline">
+            Terms of Service
+          </a>
+        </span>
+      </label>
     </form>
   );
 }

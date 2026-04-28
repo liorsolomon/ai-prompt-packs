@@ -27,7 +27,7 @@ export default function ContactPage() {
         <div className="mt-12 border-t border-gray-800 pt-8 text-sm text-gray-500 flex gap-6">
           <a href="/about" className="hover:text-gray-300 transition">About</a>
           <a href="/privacy" className="hover:text-gray-300 transition">Privacy Policy</a>
-          <a href="/terms" className="hover:text-gray-300 transition">Terms of Use</a>
+          <a href="/terms" className="hover:text-gray-300 transition">Terms of Service</a>
         </div>
       </div>
     </main>
